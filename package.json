@@ -1,5 +1,5 @@
 {
-    "name": "Lakshmi_Boilerplate_Project",
+    "name": "lakshmi-javascript-development-environment",
     "version": "1.0.0",
     "description": " Boilerplate project for JavaScript development environment ",
     "scripts": {
@@ -11,7 +11,7 @@
         "share": "npm-run-all --parallel open-src localtunnel"
 
     },
-    "author": "Lakshmi Chowdam",
+    "author": "Lakshmi S Chowdam",
     "license": "MIT",
     "dependencies": {
         "whatwg-fetch": "1.0.0"
