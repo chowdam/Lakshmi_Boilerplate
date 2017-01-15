@@ -15,7 +15,7 @@ describe('index says hello', () => {
         const index = fs.readFileSync('./src/index.html', 'utf-8');
         jsdom.env(index, function(err, window) {
             const h3 = window.document.getElementsByTagName('h3')[0];
-            expect(h3.innerHTML).to.equal('Hello World!!');
+            expect(h3.innerHTML).to.equal('Hello Lakshmi!!');
             done();
             window.close();
         });
