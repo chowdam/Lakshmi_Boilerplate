@@ -3,6 +3,13 @@ environment:
   matrix:
   # node.js
   - nodejs_version: "7"
+platform:
+  - x86
+  - Any CPU
+
+configuration:
+  - Debug
+  - Release
 
 # Install scripts. (runs after repo cloning)
 install:
@@ -20,4 +27,7 @@ test_script:
   - npm test
 
 # Don't actually build.
-build: off
+build: on
+
+
+
