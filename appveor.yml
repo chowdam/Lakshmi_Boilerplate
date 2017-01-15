@@ -1,0 +1,23 @@
+# Test against this verison of Node
+environment:
+  matrix:
+  # Node.js
+    -nodejs_version: "7"
+
+# Intsall scripts  (Installs after repository cloning)
+install:
+  #Get latets Node.js or IO.js version
+  - ps: Install-Product node $env:nodejs_version
+  #install modules
+  - npm install
+
+# post install test scripts
+test_script:
+  #output useful info for debuggin
+  - node --version
+  - npm --version
+  #run tests
+  -npm test_script
+
+# Dont actually build
+buid: off
