@@ -4,11 +4,14 @@
     "description": " Boilerplate project for JavaScript development environment ",
     "scripts": {
         "prestart": "babel-node buildScripts/startMessage.js",
-        "open-src": "babel-node buildScripts/srcServer.js",
+        "open:src": "babel-node buildScripts/srcServer.js",
         "security-check": "nsp check",
-        "start": "npm-run-all --parallel security-check open-src ",
+        "start": "npm-run-all --parallel security-check open:src lint:watch localtunnel",
+        "lint": "esw webpack.config.* src buildScripts --color",
+        "lint:watch": "npm run lint -- --watch",
         "localtunnel": "lt --port 3000",
-        "share": "npm-run-all --parallel open-src localtunnel"
+        "share": "npm-run-all --parallel open:src localtunnel",
+        "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\" "
 
     },
     "author": "Lakshmi S Chowdam",
