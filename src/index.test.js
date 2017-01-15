@@ -1,8 +1,24 @@
-//this file doesnt trasnpile , so we need to sue commonJS and ES5
+import { expect } from 'chai';
+import jsdom from 'jsdom';
+import fs from 'fs';
 
 
-//register babel to transpile before our tests run
-require('babel-register')();
+describe('our first test', () => {
 
-//disbale webpack features that mocha dont understand
-require.extensions['.css'] = function() {};
+    it('should pass', () => {
+        expect(true).to.equals(true);
+    });
+});
+
+describe('index says hello', () => {
+    it('Logs Hello world', (done) => {
+        const index = fs.readFileSync('./src/index.html', 'utf-8');
+        jsdom.env(index, function(err, window) {
+            const h3 = window.document.getElementsByTagName('h3')[0];
+            expect(h3.innerHTML).to.equal('Hello World!!');
+            done();
+            window.close();
+        });
+    });
+
+});

@@ -6,13 +6,13 @@
         "prestart": "babel-node buildScripts/startMessage.js",
         "open:src": "babel-node buildScripts/srcServer.js",
         "security-check": "nsp check",
-        "start": "npm-run-all --parallel security-check open:src lint:watch localtunnel",
+        "start": "npm-run-all --parallel security-check open:src lint:watch test:watch",
         "lint": "esw webpack.config.* src buildScripts --color",
         "lint:watch": "npm run lint -- --watch",
         "localtunnel": "lt --port 3000",
         "share": "npm-run-all --parallel open:src localtunnel",
-        "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\" "
-
+        "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\" ",
+        "test:watch": "npm run test -- --watch"
     },
     "author": "Lakshmi S Chowdam",
     "license": "MIT",
@@ -37,6 +37,7 @@
         "express": "4.14.0",
         "extract-text-webpack-plugin": "1.0.1",
         "html-webpack-plugin": "2.22.0",
+        "ignore-styles": "^5.0.1",
         "jsdom": "9.8.0",
         "json-schema-faker": "0.3.6",
         "json-server": "0.8.22",

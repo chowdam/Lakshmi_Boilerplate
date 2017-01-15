@@ -5,4 +5,4 @@
 require('babel-register')();
 
 //disbale webpack features that mocha dont understand
-require.extensions['.css'] = funciton() {};
+require.extensions['.css'] = function() {};
